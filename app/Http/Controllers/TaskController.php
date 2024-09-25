@@ -97,14 +97,12 @@ class TaskController extends Controller
     $result = $this->taskService->deleteTaskService($id);
 
     if (isset($result['error'])) {
-        // Retorna uma resposta de erro com código 404 (Not Found)
         return response()->json(['error' => $result['error']], 404);
     }
 
-    // Retorna a resposta de sucesso com a mensagem e a tarefa excluída
     return response()->json([
         'message' => $result['message'],
-        'task' => $result['task'] // Inclui a tarefa excluída na resposta
+        'task' => $result['task'] 
     ], 200);
 }
 
